@@ -1,0 +1,3 @@
+/home/eclipseeh/our-project-lab2/build/CMakeFiles/Our_project_lab2.dir
+/home/eclipseeh/our-project-lab2/build/CMakeFiles/edit_cache.dir
+/home/eclipseeh/our-project-lab2/build/CMakeFiles/rebuild_cache.dir
