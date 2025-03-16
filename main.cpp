@@ -1,37 +1,98 @@
 #include <iostream>
 #include <cstdint>
 
-void FillArray(int32_t arr[], int32_t size);
+void InputArraySize(int32_t&);
+bool CheckSize(int32_t);
+const int32_t MAX_SIZE{ 1000 };
+void InputArray(int32_t*, int32_t);
+void OutputArray(int32_t*, int32_t);
+int32_t FindElement(int32_t*, int32_t, int32_t);
 int32_t MaxElementIndex(const int32_t arr[], int32_t size);
 int32_t MinElementIndex(const int32_t arr[], int32_t size);
 int32_t CalculateAverage(int32_t maxElement, int32_t minElement);
 void PrimeNumbers(const int32_t arr[], int32_t size);
 int32_t isPrime(int32_t num);  
 
-int main() {
-    const int32_t size{10};
-    int32_t arr[size];
-    // good bad worst alexey 
-// jjjj
-    FillArray(arr, size);
-    int32_t maxIndex = MaxElementIndex(arr, size);
-    int32_t minIndex = MinElementIndex(arr, size);
-    int32_t average = CalculateAverage(arr[maxIndex], arr[minIndex]);
+int main() 
+{
+    setlocale(LC_ALL, "Ru");
+    int32_t array[MAX_SIZE], arraySize{}, arrayTarget{};
+    InputArraySize(arraySize);
+    if (!CheckSize(arraySize))
+    {
+        std::cout << "Wrong size :c";
+    }
+    else
+    {
+        std::cout << "\nInput elements of array: ";
+        InputArray(array, arraySize);
+        system("cls");
+        std::cout << "Your Array: ";
+        OutputArray(array, arraySize);
+        std::cout << "\n\nInput target element to find: ";
+        std::cin >> arrayTarget;
+        int32_t result = FindElement(array, arraySize, arrayTarget);
+        if (result != -1)
+        {
+            std::cout << "\nLast found element " << arrayTarget << " is at position: " << result;
+        }
+        else
+        {
+            std::cout << "\nElement " << arrayTarget << " is not found in the array";
+        }
+    }
 
-    std::cout << "Максимальный элемент: " << arr[maxIndex] << " на позиции: " << maxIndex << std::endl;
-    std::cout << "Минимальный элемент: " << arr[minIndex] << " на позиции: " << minIndex << std::endl;
+    int32_t maxIndex = MaxElementIndex(array, arraySize);
+    int32_t minIndex = MinElementIndex(array, arraySize);
+    int32_t average = CalculateAverage(array[maxIndex], array[minIndex]);
+
+    std::cout << "Максимальный элемент: " << array[maxIndex] << " на позиции: " << maxIndex << std::endl;
+    std::cout << "Минимальный элемент: " << array[minIndex] << " на позиции: " << minIndex << std::endl;
     std::cout << "Среднее арифметическое максимального и минимального элементов: " << average << std::endl;
 
-    PrimeNumbers(arr, size);
+    PrimeNumbers(array, arraySize);
 
     return 0;
 }
 
-void FillArray(int32_t arr[], int32_t size) {
-    std::cout << "Введите " << size << " элементов массива:" << std::endl;
-    for (int32_t i = 0; i < size; ++i) {
-        std::cin >> arr[i];
+void InputArraySize(int32_t& arraySize)
+{
+    std::cout << "Input size of array: ";
+    std::cin >> arraySize;
+}
+
+bool CheckSize(int32_t arraySize)
+{
+    return arraySize > 0 && arraySize < MAX_SIZE;
+}
+
+void InputArray(int32_t* array, int32_t arraySize)
+{
+    for (size_t i{}; i < arraySize; ++i)
+    {
+        std::cin >> array[i];
     }
+}
+
+void OutputArray(int32_t* array, int32_t arraySize)
+{
+    for (size_t i{}; i < arraySize; ++i)
+    {
+        std::cout << array[i] << ' ';
+    }
+}
+
+int32_t FindElement(int32_t* array, int32_t arraySize, int32_t arrayTarget)
+{
+    int32_t position = -1;
+    for (int32_t i = 0; i < arraySize; ++i)
+    {
+        if (array[i] == arrayTarget)
+        {
+            position = i + 1;
+        }
+    }
+    return position;
 }
 
 int32_t MaxElementIndex(const int32_t arr[], int32_t size) {
