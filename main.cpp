@@ -43,4 +43,10 @@ int main()
     }
     return 0;
 }
-//изменения
+// jfjlhfsdiulbjf 
+
+
+
+
+
+//fdjshfs
