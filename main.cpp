@@ -11,9 +11,9 @@ int32_t isPrime(int32_t num);
 int main() {
     const int32_t size{10};
     int32_t arr[size];
+    // good bad worst alexey 
 
     FillArray(arr, size);
-    // Goood day dood vibes
     int32_t maxIndex = MaxElementIndex(arr, size);
     int32_t minIndex = MinElementIndex(arr, size);
     int32_t average = CalculateAverage(arr[maxIndex], arr[minIndex]);
