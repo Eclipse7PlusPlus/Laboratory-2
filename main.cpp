@@ -12,7 +12,7 @@ int main() {
     const int32_t size{10};
     int32_t arr[size];
     // good bad worst alexey 
-
+// jjjj
     FillArray(arr, size);
     int32_t maxIndex = MaxElementIndex(arr, size);
     int32_t minIndex = MinElementIndex(arr, size);
