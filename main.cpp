@@ -13,7 +13,7 @@ int main() {
     int32_t arr[size];
 
     FillArray(arr, size);
-
+    // Goood day dood vibes
     int32_t maxIndex = MaxElementIndex(arr, size);
     int32_t minIndex = MinElementIndex(arr, size);
     int32_t average = CalculateAverage(arr[maxIndex], arr[minIndex]);
