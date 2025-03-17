@@ -79,7 +79,7 @@ int32_t isPrime(int32_t num) {
 
 void PrimeNumbers(const int32_t arr[], int32_t size) {
     int32_t sum = 0;
-    std::cout << "Простые числа в массиве: ";
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ";
     for (int32_t i = 0; i < size; ++i) {
         if (isPrime(arr[i])) {
             std::cout << arr[i] << " ";
@@ -87,7 +87,7 @@ void PrimeNumbers(const int32_t arr[], int32_t size) {
         }
     }
     std::cout << std::endl;
-    std::cout << "Сумма простых чисел: " << sum << std::endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: " << sum << std::endl;
 }
 
 void SwapElementsOfArray(int32_t* array, int32_t sizeArray)
@@ -115,6 +115,41 @@ void DeleteNegativeNumbersFromArray(int32_t* array, int32_t sizeArray)
         if (array[sizeArray - 1] < 0)
         {
             array[sizeArray - 1] = 0;
+        }
+    }
+}
+
+template <typename Type>
+int CountElements(Type* array, int size) 
+{
+    int firstZeroIndex{-1}; 
+    int lastZeroIndex{-1};
+    for (int i = 0; i < size; i++) 
+    {
+        if (array[i] == T(0)) 
+        { 
+            if (firstZeroIndex == -1) 
+            {
+                firstZeroIndex = i;
+            }
+            firstZeroIndex = i; 
+        }
+    }
+    if (firstZeroIndex == -1  lastZeroIndex == -1  firstZeroIndex == lastZeroIndex) 
+    {
+        return -1;
+    }
+    return lastZeroIndex - firstZeroIndex - 1;
+}
+
+template <typename T>
+void bubbleSort(T* array, int size)
+{
+    for (int i = 0; i < size - 1; ++i) {
+        for (int j = 0; j < size - i - 1; ++j) {
+            if (array[j] > array[j + 1]) {
+                std::swap(array[j],array[j+1]);
+            }
         }
     }
 }
