@@ -43,10 +43,3 @@ int main()
     }
     return 0;
 }
-// jfjlhfsdiulbjf 
-
-
-
-
-
-//fdjshfs

@@ -13,3 +13,5 @@ int32_t MinElementIndex(const int32_t arr[], int32_t size);
 int32_t CalculateAverage(int32_t maxElement, int32_t minElement);
 void PrimeNumbers(const int32_t arr[], int32_t size);
 int32_t isPrime(int32_t num);
+void SwapElementsOfArray(int32_t* array, int32_t sizeArray);
+void DeleteNegativeNumbersFromArray(int32_t* array, int32_t sizeArray);
