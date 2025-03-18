@@ -3,20 +3,20 @@
 #include "header.h"
 
 
-template <typename T>
-void InputArray(T* array, int32_t size) {
-    std::cout << "Input " << size << " elements of the array:\n";
-    for (int32_t i = 0; i < size; ++i) {
-        std::cin >> array[i];
-    }
+void InputArraySize(int32_t& arraySize)
+{
+    std::cout << "Input size of array: ";
+    std::cin >> arraySize;
 }
 
 bool CheckSize(int32_t arraySize) {
     return arraySize > 0 && arraySize <= MAX_SIZE;
 }
 
-void InputArray(int32_t* array, int32_t arraySize) {
-    for (int32_t i = 0; i < arraySize; ++i) {
+template <typename T>
+void InputArray(T* array, int32_t size) {
+    std::cout << "Input " << size << " elements of the array: ";
+    for (int32_t i = 0; i < size; ++i) {
         std::cin >> array[i];
     }
 }
@@ -31,9 +31,11 @@ void OutputArray(const int32_t* array, int32_t arraySize) {
 template <typename T>
 int32_t FindElement(const T* array, int32_t size, T target) {
     int32_t position = -1;
-    for (int32_t i = 0; i < size; ++i) {
-        if (array[i] == target) {
-            position = i;
+    for (int32_t i = 0; i < arraySize; ++i)
+    {
+        if (array[i] == arrayTarget)
+        {
+            position = i + 1;
         }
     }
     return position;
@@ -43,7 +45,7 @@ int32_t MaxElementIndex(const int32_t* array, int32_t size) {
     int32_t maxIndex = 0;
     for (int32_t i = 1; i < size; ++i) {
         if (array[i] > array[maxIndex]) {
-            maxIndex = i;
+            maxIndex = i+1;
         }
     }
     return maxIndex;
@@ -56,11 +58,11 @@ int32_t MinElementIndex(const int32_t* array, int32_t size) {
             minIndex = i;
         }
     }
-    return minIndex;
+    return minIndex+1;
 }
 
-int32_t CalculateAverage(int32_t maxElement, int32_t minElement) {
-    return (maxElement + minElement) / 2;
+double CalculateAverage(int32_t maxElement, int32_t minElement) {
+    return static_cast<double>((maxElement + minElement)) / 2;
 }
 
 int32_t isPrime(int32_t num) {

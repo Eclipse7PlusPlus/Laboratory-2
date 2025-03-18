@@ -11,6 +11,7 @@ int main() {
     }
     else {
         InputArray(array, arraySize);
+        system("cls");
         std::cout << "Your Array: ";
         OutputArray(array, arraySize);
 
@@ -45,8 +46,7 @@ int main() {
         std::cout << "Sorted Array: ";
         OutputArray(array, arraySize);
 
-        std::cout << "Count of elements between first and last zeros: "
-            << CountElements(array, arraySize) << '\n';
+        std::cout << "Count of elements between first and last zeros: " << CountElements(array, arraySize) << '\n';
     }
     return 0;
 }
