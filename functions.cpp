@@ -56,7 +56,7 @@ int32_t MinElementIndex(const int32_t* array, int32_t size) {
 }
 
 int32_t CalculateAverage(int32_t maxElement, int32_t minElement) {
-    return (maxElement + minElement) / 2;
+    return static_cast<double>((maxElement + minElement)) / 2;
 }
 
 int32_t isPrime(int32_t num) {
