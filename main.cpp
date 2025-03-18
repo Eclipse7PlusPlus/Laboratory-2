@@ -40,6 +40,8 @@ int main()
         std::cout << "Среднее арифметическое максимального и минимального элементов: " << average << std::endl;
 
         PrimeNumbers(array, arraySize);
+        void SwapElementsOfArray(array, arraySize);
+        void DeleteNegativeNumbersFromArray(array, arraySize);
     }
     return 0;
 }
