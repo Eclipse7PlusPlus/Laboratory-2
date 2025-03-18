@@ -26,7 +26,7 @@ void OutputArray(const int32_t* array, int32_t arraySize) {
 }
 
 int32_t FindElement(const int32_t* array, int32_t arraySize, int32_t arrayTarget) {
-    int32_t position = -1;
+    int32_t position = 0;
     for (int32_t i = 0; i < arraySize; ++i) {
         if (array[i] == arrayTarget) {
             position = i+1;
