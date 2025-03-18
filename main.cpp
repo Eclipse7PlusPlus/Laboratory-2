@@ -3,7 +3,7 @@
 #include "header.h"
 
 
-int main() 
+int main()
 {
     setlocale(LC_ALL, "Ru");
     int32_t array[MAX_SIZE], arraySize{}, arrayTarget{};
@@ -45,4 +45,3 @@ int main()
     }
     return 0;
 }
-//изменения
