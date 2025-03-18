@@ -3,60 +3,52 @@
 #include "header.h"
 
 
-void InputArraySize(int32_t& arraySize)
-{
+void InputArraySize(int32_t& arraySize) {
     std::cout << "Input size of array: ";
     std::cin >> arraySize;
 }
 
-bool CheckSize(int32_t arraySize)
-{
-    return arraySize > 0 && arraySize < MAX_SIZE;
+bool CheckSize(int32_t arraySize) {
+    return arraySize > 0 && arraySize <= MAX_SIZE;
 }
 
-void InputArray(int32_t* array, int32_t arraySize)
-{
-    for (size_t i{}; i < arraySize; ++i)
-    {
+void InputArray(int32_t* array, int32_t arraySize) {
+    for (int32_t i = 0; i < arraySize; ++i) {
         std::cin >> array[i];
     }
 }
 
-void OutputArray(int32_t* array, int32_t arraySize)
-{
-    for (size_t i{}; i < arraySize; ++i)
-    {
+void OutputArray(const int32_t* array, int32_t arraySize) {
+    for (int32_t i = 0; i < arraySize; ++i) {
         std::cout << array[i] << ' ';
     }
+    std::cout << '\n';
 }
 
-int32_t FindElement(int32_t* array, int32_t arraySize, int32_t arrayTarget)
-{
+int32_t FindElement(const int32_t* array, int32_t arraySize, int32_t arrayTarget) {
     int32_t position = -1;
-    for (int32_t i = 0; i < arraySize; ++i)
-    {
-        if (array[i] == arrayTarget)
-        {
-            position = i + 1;
+    for (int32_t i = 0; i < arraySize; ++i) {
+        if (array[i] == arrayTarget) {
+            position = i;
         }
     }
     return position;
 }
 
-int32_t MaxElementIndex(const int32_t arr[], int32_t size) {
+int32_t MaxElementIndex(const int32_t* array, int32_t size) {
     int32_t maxIndex = 0;
     for (int32_t i = 1; i < size; ++i) {
-        if (arr[i] > arr[maxIndex]) {
+        if (array[i] > array[maxIndex]) {
             maxIndex = i;
         }
     }
     return maxIndex;
 }
 
-int32_t MinElementIndex(const int32_t arr[], int32_t size) {
+int32_t MinElementIndex(const int32_t* array, int32_t size) {
     int32_t minIndex = 0;
     for (int32_t i = 1; i < size; ++i) {
-        if (arr[i] < arr[minIndex]) {
+        if (array[i] < array[minIndex]) {
             minIndex = i;
         }
     }
@@ -69,86 +61,65 @@ int32_t CalculateAverage(int32_t maxElement, int32_t minElement) {
 
 int32_t isPrime(int32_t num) {
     if (num <= 1) return 0;
-    if (num == 2) return 1;
-    if (num % 2 == 0) return 0;
-    for (int32_t i = 3; i * i <= num; i += 2) {
+    for (int32_t i = 2; i * i <= num; ++i) {
         if (num % i == 0) return 0;
     }
     return 1;
 }
 
-void PrimeNumbers(const int32_t arr[], int32_t size) {
-    int32_t sum = 0;
-    std::cout << "������� ����� � �������: ";
+void PrimeNumbers(const int32_t* array, int32_t size) {
     for (int32_t i = 0; i < size; ++i) {
-        if (isPrime(arr[i])) {
-            std::cout << arr[i] << " ";
-            sum += arr[i];
+        if (isPrime(array[i])) {
+            std::cout << array[i] << ' ';
         }
     }
-    std::cout << std::endl;
-    std::cout << "����� ������� �����: " << sum << std::endl;
+    std::cout << '\n';
 }
 
-void SwapElementsOfArray(int32_t* arr, int32_t size)
-{
-    int32_t temp{};
-    for (int32_t i{}; i < size / 2; ++i)
-    {
-        temp = arr[i];
-        arr[i] = arr[size - 1 - i];
-        arr[size - 1 - i] = temp;
+void SwapElementsOfArray(int32_t* array, int32_t size) {
+    for (int32_t i = 0; i < size / 2; ++i) {
+        int32_t temp = array[i];
+        array[i] = array[size - 1 - i];
+        array[size - 1 - i] = temp;
     }
 }
 
-void DeleteNegativeNumbersFromArray(int32_t* arr, int32_t size)
-{
-    int32_t temp{};
-    for (int32_t i{}; i < size - 1; ++i)
-    {
-        if (arr[i] < 0)
-        {
-            temp = arr[i + 1];
-            arr[i + 1] = arr[i];
-            arr[i] = temp;
-        }
-        if (arr[size - 1] < 0)
-        {
-            arr[size - 1] = 0;
+int32_t DeleteNegativeNumbersFromArray(int32_t* array, int32_t size) {
+    int32_t newSize = 0;
+    for (int32_t i = 0; i < size; ++i) {
+        if (array[i] >= 0) {
+            array[newSize++] = array[i];
         }
     }
+    return newSize;
 }
 
-template <typename Type>
-int32_t CountElements(Type* array, int32_t size) 
-{
-    int32_t firstZeroIndex{-1}; 
-    int32_t lastZeroIndex{-1};
-    for (int32_t i = 0; i < size; i++) 
-    {
-        if (array[i] == T(0)) 
-        { 
-            if (firstZeroIndex == -1) 
-            {
+template <typename T>
+int32_t CountElements(const T* array, int32_t size) {
+    int32_t firstZeroIndex = -1;
+    int32_t lastZeroIndex = -1;
+    for (int32_t i = 0; i < size; ++i) {
+        if (array[i] == 0) {
+            if (firstZeroIndex == -1) {
                 firstZeroIndex = i;
             }
-            firstZeroIndex = i; 
+            lastZeroIndex = i;
         }
     }
-    if (firstZeroIndex == -1  lastZeroIndex == -1  firstZeroIndex == lastZeroIndex) 
-    {
-        return -1;
+    if (firstZeroIndex == -1 || firstZeroIndex == lastZeroIndex) {
+        return 0;
     }
     return lastZeroIndex - firstZeroIndex - 1;
 }
 
 template <typename T>
-void bubbleSort(T* array, int32_t size)
-{
+void bubbleSort(T* array, int32_t size) {
     for (int32_t i = 0; i < size - 1; ++i) {
         for (int32_t j = 0; j < size - i - 1; ++j) {
             if (array[j] > array[j + 1]) {
-                std::swap(array[j],array[j+1]);
+                T temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
             }
         }
     }
