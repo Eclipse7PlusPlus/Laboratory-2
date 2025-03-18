@@ -39,7 +39,7 @@ int32_t MaxElementIndex(const int32_t* array, int32_t size) {
     int32_t maxIndex = 0;
     for (int32_t i = 1; i < size; ++i) {
         if (array[i] > array[maxIndex]) {
-            maxIndex = i;
+            maxIndex = i+1;
         }
     }
     return maxIndex;
@@ -49,7 +49,7 @@ int32_t MinElementIndex(const int32_t* array, int32_t size) {
     int32_t minIndex = 0;
     for (int32_t i = 1; i < size; ++i) {
         if (array[i] < array[minIndex]) {
-            minIndex = i;
+            minIndex = i+1;
         }
     }
     return minIndex;
