@@ -91,6 +91,7 @@ void PrimeNumbers(const int32_t arr[], int32_t size) {
 }
 
 
+
 template <typename Type>
 int CountElements(Type* array, int size) 
 {
