@@ -40,8 +40,15 @@ int main()
         std::cout << "Среднее арифметическое максимального и минимального элементов: " << average << std::endl;
 
         PrimeNumbers(array, arraySize);
-        void SwapElementsOfArray(array, arraySize);
-        void DeleteNegativeNumbersFromArray(array, arraySize);
+        SwapElementsOfArray(array, arraySize);
+        DeleteNegativeNumbersFromArray(array, arraySize);
+
+        bubbleSort(T* array, int32_t arraySize);
+        std::cout << "Array had been sorted\n";
+
+        CountElements(Type* array, int32_t arraySize);
+        std::cout << "Amount of elements between first and last zeros is: " << CountElements(array, arraySize) << std::endl;
     }
+    
     return 0;
 }

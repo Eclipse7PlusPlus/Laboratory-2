@@ -120,11 +120,11 @@ void DeleteNegativeNumbersFromArray(int32_t* arr, int32_t size)
 }
 
 template <typename Type>
-int CountElements(Type* array, int size) 
+int32_t CountElements(Type* array, int32_t size) 
 {
-    int firstZeroIndex{-1}; 
-    int lastZeroIndex{-1};
-    for (int i = 0; i < size; i++) 
+    int32_t firstZeroIndex{-1}; 
+    int32_t lastZeroIndex{-1};
+    for (int32_t i = 0; i < size; i++) 
     {
         if (array[i] == T(0)) 
         { 
@@ -143,10 +143,10 @@ int CountElements(Type* array, int size)
 }
 
 template <typename T>
-void bubbleSort(T* array, int size)
+void bubbleSort(T* array, int32_t size)
 {
-    for (int i = 0; i < size - 1; ++i) {
-        for (int j = 0; j < size - i - 1; ++j) {
+    for (int32_t i = 0; i < size - 1; ++i) {
+        for (int32_t j = 0; j < size - i - 1; ++j) {
             if (array[j] > array[j + 1]) {
                 std::swap(array[j],array[j+1]);
             }

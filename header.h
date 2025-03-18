@@ -17,8 +17,8 @@ void SwapElementsOfArray(int32_t*, int32_t);
 void DeleteNegativeNumbersFromArray(int32_t*, int32_t);
 
 template <typename Type>
-int CountElements(Type* , int);
+int32_t CountElements(Type* array, int32_t size);
 
 template <typename T>
-void bubbleSort(T* array, int size)
+void bubbleSort(T* array, int32_t size);
 
