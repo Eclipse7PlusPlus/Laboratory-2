@@ -29,7 +29,7 @@ int32_t FindElement(const int32_t* array, int32_t arraySize, int32_t arrayTarget
     int32_t position = -1;
     for (int32_t i = 0; i < arraySize; ++i) {
         if (array[i] == arrayTarget) {
-            position = i;
+            position = i+1;
         }
     }
     return position;
