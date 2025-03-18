@@ -90,34 +90,6 @@ void PrimeNumbers(const int32_t arr[], int32_t size) {
     std::cout << "����� ������� �����: " << sum << std::endl;
 }
 
-void SwapElementsOfArray(int32_t* array, int32_t sizeArray)
-{
-    int32_t temp{};
-    for (int32_t i{}; i < sizeArray / 2; ++i)
-    {
-        temp = array[i];
-        array[i] = array[sizeArray - 1 - i];
-        array[sizeArray - 1 - i] = temp;
-    }
-}
-
-void DeleteNegativeNumbersFromArray(int32_t* array, int32_t sizeArray)
-{
-    int32_t temp{};
-    for (int32_t i{}; i < sizeArray - 1; ++i)
-    {
-        if (array[i] < 0)
-        {
-            temp = array[i + 1];
-            array[i + 1] = array[i];
-            array[i] = temp;
-        }
-        if (array[sizeArray - 1] < 0)
-        {
-            array[sizeArray - 1] = 0;
-        }
-    }
-}
 
 template <typename Type>
 int CountElements(Type* array, int size) 
@@ -150,6 +122,35 @@ void bubbleSort(T* array, int size)
             if (array[j] > array[j + 1]) {
                 std::swap(array[j],array[j+1]);
             }
+        }
+    }
+}
+
+void SwapElementsOfArray(int32_t* array, int32_t sizeArray)
+{
+    int32_t temp{};
+    for (int32_t i{}; i < sizeArray / 2; ++i)
+    {
+        temp = array[i];
+        array[i] = array[sizeArray - 1 - i];
+        array[sizeArray - 1 - i] = temp;
+    }
+}
+
+void DeleteNegativeNumbersFromArray(int32_t* array, int32_t sizeArray)
+{
+    int32_t temp{};
+    for (int32_t i{}; i < sizeArray - 1; ++i)
+    {
+        if (array[i] < 0)
+        {
+            temp = array[i + 1];
+            array[i + 1] = array[i];
+            array[i] = temp;
+        }
+        if (array[sizeArray - 1] < 0)
+        {
+            array[sizeArray - 1] = 0;
         }
     }
 }
