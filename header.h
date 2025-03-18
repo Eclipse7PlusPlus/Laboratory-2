@@ -4,11 +4,16 @@
 
 const int32_t MAX_SIZE{ 1000 };
 
-void InputArraySize(int32_t&);
+template <typename T>
+void InputArray(T*, int32_t);
+
 bool CheckSize(int32_t);
 void InputArray(int32_t*, int32_t);
 void OutputArray(const int32_t*, int32_t);
-int32_t FindElement(const int32_t*, int32_t, int32_t);
+
+template <typename T>
+int32_t FindElement(const T*, int32_t, T);
+
 int32_t MaxElementIndex(const int32_t*, int32_t);
 int32_t MinElementIndex(const int32_t*, int32_t);
 int32_t CalculateAverage(int32_t, int32_t);

@@ -3,9 +3,12 @@
 #include "header.h"
 
 
-void InputArraySize(int32_t& arraySize) {
-    std::cout << "Input size of array: ";
-    std::cin >> arraySize;
+template <typename T>
+void InputArray(T* array, int32_t size) {
+    std::cout << "Input " << size << " elements of the array:\n";
+    for (int32_t i = 0; i < size; ++i) {
+        std::cin >> array[i];
+    }
 }
 
 bool CheckSize(int32_t arraySize) {
@@ -25,10 +28,11 @@ void OutputArray(const int32_t* array, int32_t arraySize) {
     std::cout << '\n';
 }
 
-int32_t FindElement(const int32_t* array, int32_t arraySize, int32_t arrayTarget) {
+template <typename T>
+int32_t FindElement(const T* array, int32_t size, T target) {
     int32_t position = -1;
-    for (int32_t i = 0; i < arraySize; ++i) {
-        if (array[i] == arrayTarget) {
+    for (int32_t i = 0; i < size; ++i) {
+        if (array[i] == target) {
             position = i;
         }
     }
