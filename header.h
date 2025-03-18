@@ -11,7 +11,7 @@ void OutputArray(const int32_t*, int32_t);
 int32_t FindElement(const int32_t*, int32_t, int32_t);
 int32_t MaxElementIndex(const int32_t*, int32_t);
 int32_t MinElementIndex(const int32_t*, int32_t);
-int32_t CalculateAverage(int32_t, int32_t);
+double CalculateAverage(int32_t, int32_t);
 void PrimeNumbers(const int32_t*, int32_t);
 int32_t isPrime(int32_t);
 void SwapElementsOfArray(int32_t*, int32_t);
