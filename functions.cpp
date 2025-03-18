@@ -49,10 +49,10 @@ int32_t MinElementIndex(const int32_t* array, int32_t size) {
     int32_t minIndex = 0;
     for (int32_t i = 1; i < size; ++i) {
         if (array[i] < array[minIndex]) {
-            minIndex = i+1;
+            minIndex = i;
         }
     }
-    return minIndex;
+    return minIndex+1;
 }
 
 int32_t CalculateAverage(int32_t maxElement, int32_t minElement) {
