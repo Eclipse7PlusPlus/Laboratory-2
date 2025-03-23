@@ -1,29 +1,34 @@
+#ifndef HEADER_H
+#define HEADER_H
+
 #include <iostream>
 #include <cstdint>
 
-
-const int32_t MAX_SIZE{ 1000 };
-void InputArraySize(int32_t&);
-bool CheckSize(int32_t);
+void InputArraySize(int32_t& arraySize);
+bool CheckSize(int32_t arraySize);
 
 template <typename T>
-void InputArray(T*, int32_t);
-
-void OutputArray(const int32_t*, int32_t);
+void InputArray(T* array, int32_t size);
 
 template <typename T>
-int32_t FindElement(const T*, int32_t, T);
-
-int32_t MaxElementIndex(const int32_t*, int32_t);
-int32_t MinElementIndex(const int32_t*, int32_t);
-double CalculateAverage(int32_t, int32_t);
-void PrimeNumbers(const int32_t*, int32_t);
-int32_t isPrime(int32_t);
-void SwapElementsOfArray(int32_t*, int32_t);
-int32_t DeleteNegativeNumbersFromArray(int32_t*, int32_t);
+void PrintArray(const T* array, int32_t size);
 
 template <typename T>
-int32_t CountElements(const T*, int32_t);
+int32_t FindElement(const T* array, int32_t size, T target);
+
+int32_t MaxElementIndex(const int32_t* array, int32_t size);
+int32_t MinElementIndex(const int32_t* array, int32_t size);
+double CalculateAverage(const int32_t* array, int32_t size);
+
+int32_t isPrime(int32_t num);
+void PrimeNumbers(const int32_t* array, int32_t size);
+int32_t SumOfPrimes(const int32_t* array, int32_t size);
+
+void SwapElementsOfArray(int32_t* array, int32_t size);
+int32_t DeleteNegativeNumbersFromArray(int32_t* array, int32_t size);
 
 template <typename T>
-void bubbleSort(T*, int32_t);
+int32_t CountElements(const T* array, int32_t size);
+
+template <typename T>
+void bubbleSort(T* array, int32_t size);
