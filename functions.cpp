@@ -60,7 +60,7 @@ int32_t MinElementIndex(const int32_t* array, int32_t size) {
 }
 
 template <typename T>
-double CalculateAverageBetweenMinMax(const T* array, int32_t size, int32_t maxIndex, int32_t minIndex) {
+double CalculateAverage(const T* array, int32_t size, int32_t maxIndex, int32_t minIndex) {
     maxIndex -= 1;
     minIndex -= 1;
 
