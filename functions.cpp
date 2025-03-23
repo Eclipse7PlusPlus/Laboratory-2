@@ -86,9 +86,15 @@ double CalculateAverageBetweenMinMax(const T* array, int32_t size, int32_t maxIn
 }
 
 int32_t isPrime(int32_t num) {
-    if (num <= 1) return 0;
-    for (int32_t i = 2; i * i <= num; ++i) {
-        if (num % i == 0) return 0;
+    if (num <= 1) return 0; // Числа меньше или равные 1 не являются простыми
+    if (num <= 3) return 1; // 2 и 3 — простые числа
+    if (num % 2 == 0 || num % 3 == 0) return 0; // Отсекаем четные числа и кратные 3
+
+    // Проверяем делители от 5 до квадратного корня из num с шагом 6
+    for (int32_t i = 5; i * i <= num; i += 6) {
+        if (num % i == 0 || num % (i + 2) == 0) {
+            return 0;
+        }
     }
     return 1;
 }
