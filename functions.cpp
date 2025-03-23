@@ -113,7 +113,7 @@ int32_t CountElements(const T* array, int32_t size) {
         }
     }
     if (firstZeroIndex == -1 || firstZeroIndex == lastZeroIndex) {
-        return 0;
+        return -1;
     }
     return lastZeroIndex - firstZeroIndex - 1;
 }
