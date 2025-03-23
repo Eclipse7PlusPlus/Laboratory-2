@@ -8,43 +8,42 @@ int main() {
     InputArraySize(arraySize);
     if (!CheckSize(arraySize)) {
         std::cout << "Wrong size :c";
-    }
-    else {
+    } else {
         InputArray(array, arraySize);
         system("cls");
         std::cout << "Your Array: ";
-        OutputArray(array, arraySize);
+        PrintArray(array, arraySize);
 
         std::cout << "\nInput target element to find: ";
         std::cin >> arrayTarget;
         int32_t result = FindElement(array, arraySize, arrayTarget);
         if (result != -1) {
-            std::cout << "Last occurrence of element " << arrayTarget << " is at position: " << result << '\n';
-        }
-        else {
+            std::cout << "Last occurrence of element " << arrayTarget << " is at position: " << result + 1 << '\n';
+        } else {
             std::cout << "Element " << arrayTarget << " not found\n";
         }
 
         int32_t maxIndex = MaxElementIndex(array, arraySize);
         int32_t minIndex = MinElementIndex(array, arraySize);
-        int32_t average = CalculateAverage(array[maxIndex], array[minIndex]);
-        std::cout << "Max element: " << array[maxIndex] << " at position: " << maxIndex << '\n';
-        std::cout << "Min element: " << array[minIndex] << " at position: " << minIndex << '\n';
+        double average = CalculateAverage(array, arraySize);
+        std::cout << "Max element: " << array[maxIndex] << " at position: " << maxIndex + 1 << '\n';
+        std::cout << "Min element: " << array[minIndex] << " at position: " << minIndex + 1 << '\n';
         std::cout << "Average of max and min: " << average << '\n';
 
         PrimeNumbers(array, arraySize);
+        std::cout << "Sum of prime numbers: " << SumOfPrimes(array, arraySize) << '\n';
 
         SwapElementsOfArray(array, arraySize);
         std::cout << "Swapped Array: ";
-        OutputArray(array, arraySize);
+        PrintArray(array, arraySize);
 
         arraySize = DeleteNegativeNumbersFromArray(array, arraySize);
         std::cout << "Array without negatives: ";
-        OutputArray(array, arraySize);
+        PrintArray(array, arraySize);
 
         bubbleSort(array, arraySize);
         std::cout << "Sorted Array: ";
-        OutputArray(array, arraySize);
+        PrintArray(array, arraySize);
 
         std::cout << "Count of elements between first and last zeros: " << CountElements(array, arraySize) << '\n';
     }
