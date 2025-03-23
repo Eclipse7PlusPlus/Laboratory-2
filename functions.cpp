@@ -59,8 +59,30 @@ int32_t MinElementIndex(const int32_t* array, int32_t size) {
     return minIndex+1;
 }
 
-double CalculateAverage(int32_t maxElement, int32_t minElement) {
-    return static_cast<double>((maxElement + minElement)) / 2;
+template <typename T>
+double CalculateAverageBetweenMinMax(const T* array, int32_t size, int32_t maxIndex, int32_t minIndex) {
+    maxIndex -= 1;
+    minIndex -= 1;
+
+    if (maxIndex == minIndex || abs(maxIndex - minIndex) == 1) {
+        return -1; // Нет элементов между min и max
+    }
+    
+    int32_t start = (minIndex < maxIndex) ? minIndex : maxIndex;
+    int32_t end = (minIndex < maxIndex) ? maxIndex : minIndex;
+
+    double sum = 0;
+    int32_t count = 0;
+    for (int32_t i = start + 1; i < end; ++i) {
+        sum += array[i];
+        count++;
+    }
+
+    if (count == 0) {
+        return -1;
+    }
+
+    return sum / count;
 }
 
 int32_t isPrime(int32_t num) {
