@@ -34,7 +34,7 @@ int32_t FindElement(const T* array, int32_t size, T target) {
     int32_t position = -1;
     for (int32_t i = 0; i < size; ++i) {
         if (array[i] == target) {
-            position = i + 1; // Возвращаем позицию, начиная с 1
+            position = i + 1; 
         }
     }
     return position;
@@ -86,11 +86,11 @@ double CalculateAverageBetweenMinMax(const T* array, int32_t size, int32_t maxIn
 }
 
 int32_t isPrime(int32_t num) {
-    if (num <= 1) return 0; // Числа меньше или равные 1 не являются простыми
-    if (num <= 3) return 1; // 2 и 3 — простые числа
-    if (num % 2 == 0 || num % 3 == 0) return 0; // Отсекаем четные числа и кратные 3
+    if (num <= 1) return 0; 
+    if (num <= 3) return 1; 
+    if (num % 2 == 0 || num % 3 == 0) return 0; 
 
-    // Проверяем делители от 5 до квадратного корня из num с шагом 6
+   
     for (int32_t i = 5; i * i <= num; i += 6) {
         if (num % i == 0 || num % (i + 2) == 0) {
             return 0;
