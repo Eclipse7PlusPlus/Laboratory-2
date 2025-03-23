@@ -1,12 +1,8 @@
 #ifndef HEADER_H
 #define HEADER_H
-
-#includ#include <iostream>
+#include <iostream>
 #include <cstdint>
 #include <cmath>
-
-
-
 
 void InputArraySize(int32_t& arraySize);
 bool CheckSize(int32_t arraySize);
