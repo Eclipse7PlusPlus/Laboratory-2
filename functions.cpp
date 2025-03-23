@@ -2,6 +2,7 @@
 #include <cstdint>
 #include "header.h"
 
+template <typename T>
 
 void InputArraySize(int32_t& arraySize)
 {
@@ -21,26 +22,23 @@ void InputArray(T* array, int32_t size) {
     }
 }
 
-void OutputArray(const int32_t* array, int32_t arraySize) {
-    for (int32_t i = 0; i < arraySize; ++i) {
+void PrintArray(const T* array, int32_t size) {
+    for (int32_t i = 0; i < size; ++i) {
         std::cout << array[i] << ' ';
     }
     std::cout << '\n';
-}
+} 
 
 template <typename T>
 int32_t FindElement(const T* array, int32_t size, T target) {
     int32_t position = -1;
-    for (int32_t i = 0; i < arraySize; ++i)
-    {
-        if (array[i] == arrayTarget)
-        {
-            position = i + 1;
+    for (int32_t i = 0; i < size; ++i) {
+        if (array[i] == target) {
+            position = i + 1; // Возвращаем позицию, начиная с 1
         }
     }
     return position;
 }
-
 int32_t MaxElementIndex(const int32_t* array, int32_t size) {
     int32_t maxIndex = 0;
     for (int32_t i = 1; i < size; ++i) {
@@ -73,13 +71,14 @@ int32_t isPrime(int32_t num) {
     return 1;
 }
 
-void PrimeNumbers(const int32_t* array, int32_t size) {
+int32_t SumOfPrimes(const int32_t* array, int32_t size) {
+    int32_t sum = 0;
     for (int32_t i = 0; i < size; ++i) {
         if (isPrime(array[i])) {
-            std::cout << array[i] << ' ';
+            sum += array[i];
         }
     }
-    std::cout << '\n';
+    return sum;
 }
 
 void SwapElementsOfArray(int32_t* array, int32_t size) {
@@ -96,6 +95,10 @@ int32_t DeleteNegativeNumbersFromArray(int32_t* array, int32_t size) {
         if (array[i] >= 0) {
             array[newSize++] = array[i];
         }
+    }
+  
+    for (int32_t i = newSize; i < size; ++i) {
+        array[i] = 0;
     }
     return newSize;
 }
