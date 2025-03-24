@@ -4,7 +4,7 @@
 
 int main() {
     const int32_t MAX_SIZE = 100;
-    int32_t array[MAX_SIZE], arraySize{}, arrayTarget{};
+    int32_t array[MAX_SIZE], size{}, arrayTarget{};
     
     
     InputArraySize(arraySize);
@@ -14,11 +14,11 @@ int main() {
         return 1;
     }
     
-    InputArray(array, arraySize);
+    InputArray(array, size);
     
 
     std::cout << "Your Array: ";
-    PrintArray(array, arraySize);
+    PrintArray(array, size);
 
   
     std::cout << "\nInput target element to find: ";
@@ -27,7 +27,7 @@ int main() {
         return 1;
     }
 
-    int32_t result = FindElement(array, arraySize, arrayTarget);
+    int32_t result = FindElement(array, size, arrayTarget);
     if (result != -1) {
         std::cout << "First occurrence of element " << arrayTarget 
                   << " is at position: " << result << '\n';
@@ -35,14 +35,14 @@ int main() {
         std::cout << "Element " << arrayTarget << " not found\n";
     }
 
-    int32_t maxIndex = MaxElementIndex(array, arraySize);
-    int32_t minIndex = MinElementIndex(array, arraySize);
-    double average = CalculateAverage(array, arraySize, maxIndex, minIndex);
+    int32_t maxIndex = MaxElementIndex(array, size);
+    int32_t minIndex = MinElementIndex(array, size);
+    double average = CalculateAverage(array, size, maxPosition, minPosition);
     
-    std::cout << "\nMax element: " << array[maxIndex - 1] 
-              << " at position: " << maxIndex << '\n';
-    std::cout << "Min element: " << array[minIndex - 1] 
-              << " at position: " << minIndex << '\n';
+    std::cout << "\nMax element: " << array[maxPosition - 1] 
+              << " at position: " << maxPosition << '\n';
+    std::cout << "Min element: " << array[minPosition- 1] 
+              << " at position: " << minPosition << '\n';
     
     if (average != -1) {
         std::cout << "Average between min and max: " << average << '\n';
@@ -51,26 +51,26 @@ int main() {
     }
 
     PrimeNumbers(array, arraySize);
-    std::cout << "Sum of prime numbers: " << SumOfPrimes(array, arraySize) << '\n';
+    std::cout << "Sum of prime numbers: " << SumOfPrimes(array, size) << '\n';
 
     
-    SwapElementsOfArray(array, arraySize);
+    SwapElementsOfArray(array, size);
     std::cout << "\nSwapped Array: ";
-    PrintArray(array, arraySize);
+    PrintArray(array, size);
 
-    arraySize = DeleteNegativeNumbersFromArray(array, arraySize);
+    arraySize = DeleteNegativeNumbersFromArray(array, size);
     std::cout << "Array without negatives: ";
-    PrintArray(array, arraySize);
+    PrintArray(array, size);
 
     char order;
     std::cout << "\nSort in ascending order? (y/n): ";
     std::cin >> order;
     bool ascending = (order == 'y' || order == 'Y');
-    bubbleSort(array, arraySize, ascending);
+    bubbleSort(array, size, ascending);
     std::cout << "Sorted Array: ";
-    PrintArray(array, arraySize);
+    PrintArray(array, size);
 
-    int32_t countBetweenZeros = CountElements(array, arraySize);
+    int32_t countBetweenZeros = CountElements(array, size);
     if (countBetweenZeros != -1) {
         std::cout << "\nCount of elements between first and last zeros: " 
                   << countBetweenZeros << '\n';
