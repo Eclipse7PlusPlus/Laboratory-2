@@ -9,7 +9,7 @@ int main() {
     
     InputArraySize(arraySize);
     if (!CheckSize(arraySize)) {
-        std::cerr << "Error: Invalid array size. Must be between 1 and " 
+        std::cout << "Error: Invalid array size. Must be between 1 and " 
                   << MAX_SIZE << "\n";
         return 1;
     }
