@@ -3,46 +3,42 @@
 #include "header.h"
 
 int main() {
-    const int32_t MAX_SIZE = 100;
-    int32_t array[MAX_SIZE], size{}, arrayTarget{};
+    int32_t array[MAX_SIZE], size = 0, target = 0;
     
-    
-    InputArraySize(arraySize);
-    if (!CheckSize(arraySize)) {
-        std::cout << "Error: Invalid array size. Must be between 1 and " 
-                  << MAX_SIZE << "\n";
+    InputArraySize(size);
+    if (!CheckSize(size)) {
+        std::cerr << "Error: Invalid array size. Must be between 1 and " 
+                 << MAX_SIZE << "\n";
         return 1;
     }
     
     InputArray(array, size);
     
-
     std::cout << "Your Array: ";
     PrintArray(array, size);
 
-  
     std::cout << "\nInput target element to find: ";
-    if (!(std::cin >> arrayTarget)) {
-        std::cout << "Error: Invalid input\n";
+    if (!(std::cin >> target)) {
+        std::cerr << "Error: Invalid input\n";
         return 1;
     }
 
-    int32_t result = FindElement(array, size, arrayTarget);
+    int32_t result = FindElement(array, size, target);
     if (result != -1) {
-        std::cout << "First occurrence of element " << arrayTarget 
+        std::cout << "First occurrence of element " << target 
                   << " is at position: " << result << '\n';
     } else {
-        std::cout << "Element " << arrayTarget << " not found\n";
+        std::cout << "Element " << target << " not found\n";
     }
 
-    int32_t maxPosition = MaxElementPosition(array, size);
-    int32_t minPosition = MinElementPosition(array, size);
-    double average = CalculateAverage(array, size, maxPosition, minPosition);
+    int32_t maxPos = MaxElementPosition(array, size);
+    int32_t minPos = MinElementPosition(array, size);
+    double average = CalculateAverage(array, size, maxPos, minPos);
     
-    std::cout << "\nMax element: " << array[maxPosition - 1] 
-              << " at position: " << maxPosition << '\n';
-    std::cout << "Min element: " << array[minPosition- 1] 
-              << " at position: " << minPosition << '\n';
+    std::cout << "\nMax element: " << array[maxPos - 1] 
+              << " at position: " << maxPos << '\n';
+    std::cout << "Min element: " << array[minPos - 1] 
+              << " at position: " << minPos << '\n';
     
     if (average != -1) {
         std::cout << "Average between min and max: " << average << '\n';
@@ -50,15 +46,14 @@ int main() {
         std::cout << "No elements between min and max (they are adjacent or the same).\n";
     }
 
-    PrimeNumbers(array, arraySize);
+    PrimeNumbers(array, size);
     std::cout << "Sum of prime numbers: " << SumOfPrimes(array, size) << '\n';
 
-    
     ReverseArray(array, size);
     std::cout << "\nReversed Array: ";
     PrintArray(array, size);
 
-    arraySize = DeleteNegativeNumbersFromArray(array, size);
+    size = DeleteNegativeNumbersFromArray(array, size);
     std::cout << "Array without negatives: ";
     PrintArray(array, size);
 
@@ -66,7 +61,7 @@ int main() {
     std::cout << "\nSort in ascending order? (y/n): ";
     std::cin >> order;
     bool ascending = (order == 'y' || order == 'Y');
-    bubbleSort(array, size, ascending);
+    BubbleSort(array, size, ascending);
     std::cout << "Sorted Array: ";
     PrintArray(array, size);
 
