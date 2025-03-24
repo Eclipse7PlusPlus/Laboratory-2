@@ -2,28 +2,33 @@
 #include <cstdint>
 #include "header.h"
 
+void InputArraySize(int32_t& size) {
+    std::cout << "Input size of array: ";
+    std::cin >> size;
+}
+
 bool CheckSize(int32_t size) {
     return size > 0 && size <= MAX_SIZE;
 }
 
 int32_t MaxElementPosition(const int32_t* array, int32_t size) {
-    int32_t maxPosition = 0;
+    int32_t maxPos = 0;
     for (int32_t i = 1; i < size; ++i) {
-        if (array[i] > array[maxPosition]) {
-            maxPosition = i;
+        if (array[i] > array[maxPos]) {
+            maxPos = i;
         }
     }
-    return maxPosition + 1; 
+    return maxPos + 1;
 }
 
-int32_t MinElementPosition(int32_t* array, int32_t size) {
-    int32_t minPosition = 0;
+int32_t MinElementPosition(const int32_t* array, int32_t size) {
+    int32_t minPos = 0;
     for (int32_t i = 1; i < size; ++i) {
-        if (array[i] < array[minPosition]) {
-            minPosition = i;
+        if (array[i] < array[minPos]) {
+            minPos = i;
         }
     }
-    return minPosition + 1; 
+    return minPos + 1;
 }
 
 int32_t isPrime(int32_t num) {
@@ -39,7 +44,7 @@ int32_t isPrime(int32_t num) {
     return 1;
 }
 
-void PrimeNumbers(int32_t* array, int32_t size) {
+void PrimeNumbers(const int32_t* array, int32_t size) {
     std::cout << "Prime numbers: ";
     for (int32_t i = 0; i < size; ++i) {
         if (isPrime(array[i])) {
@@ -49,7 +54,7 @@ void PrimeNumbers(int32_t* array, int32_t size) {
     std::cout << '\n';
 }
 
-int32_t SumOfPrimes(int32_t* array, int32_t size) {
+int32_t SumOfPrimes(const int32_t* array, int32_t size) {
     int32_t sum = 0;
     for (int32_t i = 0; i < size; ++i) {
         if (isPrime(array[i])) {
@@ -61,9 +66,7 @@ int32_t SumOfPrimes(int32_t* array, int32_t size) {
 
 void ReverseArray(int32_t* array, int32_t size) {
     for (int32_t i = 0; i < size / 2; ++i) {
-        int32_t temp = array[i];
-        array[i] = array[size - 1 - i];
-        array[size - 1 - i] = temp;
+        std::swap(array[i], array[size - 1 - i]);
     }
 }
 
@@ -73,9 +76,6 @@ int32_t DeleteNegativeNumbersFromArray(int32_t* array, int32_t size) {
         if (array[i] >= 0) {
             array[newSize++] = array[i];
         }
-    }
-    for (int32_t i = newSize; i < size; ++i) {
-        array[i] = 0;
     }
     return newSize;
 }
