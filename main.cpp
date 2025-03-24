@@ -54,8 +54,8 @@ int main() {
     std::cout << "Sum of prime numbers: " << SumOfPrimes(array, size) << '\n';
 
     
-    SwapElementsOfArray(array, size);
-    std::cout << "\nSwapped Array: ";
+    ReverseArray(array, size);
+    std::cout << "\nReversed Array: ";
     PrintArray(array, size);
 
     arraySize = DeleteNegativeNumbersFromArray(array, size);
