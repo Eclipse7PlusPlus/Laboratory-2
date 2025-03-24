@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cstdint>
 #include <cmath>
-#include <algorithm>
+
 
 const int32_t MAX_SIZE = 100;
 
