@@ -6,23 +6,16 @@ int main() {
     const int32_t MAX_SIZE = 100;
     int32_t array[MAX_SIZE], arraySize{}, arrayTarget{};
     
-    // Ввод размера массива
+    
     InputArraySize(arraySize);
     if (!CheckSize(arraySize)) {
         std::cerr << "Error: Invalid array size. Must be between 1 and " 
                   << MAX_SIZE << "\n";
         return 1;
     }
-
-    // Ввод массива
+    
     InputArray(array, arraySize);
     
-    // Очистка экрана (альтернатива system("cls"))
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
 
     std::cout << "Your Array: ";
     PrintArray(array, arraySize);
