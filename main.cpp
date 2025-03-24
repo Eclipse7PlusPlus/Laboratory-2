@@ -2,78 +2,88 @@
 #include <cstdint>
 #include "header.h"
 
-void InputArraySize(int32_t& size) {
-    std::cout << "Input size of array: ";
-    std::cin >> size;
-}
-
-bool CheckSize(int32_t size) {
-    return size > 0 && size <= MAX_SIZE;
-}
-
-int32_t MaxElementIndex(int32_t* array, int32_t size) {
-    int32_t maxIndex = 0;
-    for (int32_t i = 1; i < size; ++i) {
-        if (array[i] > array[maxIndex]) {
-            maxIndex = i;
-        }
-    }
-    return maxIndex + 1;
-}
-
-int32_t MinElementIndex(int32_t* array, int32_t size) {
-    int32_t minIndex = 0;
-    for (int32_t i = 1; i < size; ++i) {
-        if (array[i] < array[minIndex]) {
-            minIndex = i;
-        }
-    }
-    return minIndex + 1;
-}
-
-int32_t isPrime(int32_t num) {
-    if (num <= 1) return 0;
-    if (num == 2) return 1;
-    if (num % 2 == 0) return 0;
+int main() {
+    const int32_t MAX_SIZE = 100;
+    int32_t array[MAX_SIZE], arraySize{}, arrayTarget{};
     
-    for (int32_t i = 3; i * i <= num; i += 2) {
-        if (num % i == 0) return 0;
+    // Ввод размера массива
+    InputArraySize(arraySize);
+    if (!CheckSize(arraySize)) {
+        std::cerr << "Error: Invalid array size. Must be between 1 and " 
+                  << MAX_SIZE << "\n";
+        return 1;
     }
-    return 1;
-}
 
-void PrimeNumbers(int32_t* array, int32_t size) {
-    std::cout << "Prime numbers: ";
-    for (int32_t i = 0; i < size; ++i) {
-        if (isPrime(array[i])) {
-            std::cout << array[i] << ' ';
-        }
-    }
-    std::cout << '\n';
-}
+    // Ввод массива
+    InputArray(array, arraySize);
+    
+    // Очистка экрана (альтернатива system("cls"))
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
 
-int32_t SumOfPrimes(int32_t* array, int32_t size) {
-    int32_t sum = 0;
-    for (int32_t i = 0; i < size; ++i) {
-        if (isPrime(array[i])) {
-            sum += array[i];
-        }
-    }
-    return sum;
-}
+    std::cout << "Your Array: ";
+    PrintArray(array, arraySize);
 
-void SwapElementsOfArray(int32_t* array, int32_t size) {
-    for (int32_t i = 0; i < size / 2; ++i) {
-        std::swap(array[i], array[size - 1 - i]);
+  
+    std::cout << "\nInput target element to find: ";
+    if (!(std::cin >> arrayTarget)) {
+        std::cout << "Error: Invalid input\n";
+        return 1;
     }
-}
 
-int32_t DeleteNegativeNumbersFromArray(int32_t* array, int32_t size) {
-    int32_t newSize = 0;
-    for (int32_t i = 0; i < size; ++i) {
-        if (array[i] >= 0) {
-            array[newSize++] = array[i];
-        }
+    int32_t result = FindElement(array, arraySize, arrayTarget);
+    if (result != -1) {
+        std::cout << "First occurrence of element " << arrayTarget 
+                  << " is at position: " << result << '\n';
+    } else {
+        std::cout << "Element " << arrayTarget << " not found\n";
     }
-    return newSize;
+
+    int32_t maxIndex = MaxElementIndex(array, arraySize);
+    int32_t minIndex = MinElementIndex(array, arraySize);
+    double average = CalculateAverage(array, arraySize, maxIndex, minIndex);
+    
+    std::cout << "\nMax element: " << array[maxIndex - 1] 
+              << " at position: " << maxIndex << '\n';
+    std::cout << "Min element: " << array[minIndex - 1] 
+              << " at position: " << minIndex << '\n';
+    
+    if (average != -1) {
+        std::cout << "Average between min and max: " << average << '\n';
+    } else {
+        std::cout << "No elements between min and max (they are adjacent or the same).\n";
+    }
+
+    PrimeNumbers(array, arraySize);
+    std::cout << "Sum of prime numbers: " << SumOfPrimes(array, arraySize) << '\n';
+
+    
+    SwapElementsOfArray(array, arraySize);
+    std::cout << "\nSwapped Array: ";
+    PrintArray(array, arraySize);
+
+    arraySize = DeleteNegativeNumbersFromArray(array, arraySize);
+    std::cout << "Array without negatives: ";
+    PrintArray(array, arraySize);
+
+    char order;
+    std::cout << "\nSort in ascending order? (y/n): ";
+    std::cin >> order;
+    bool ascending = (order == 'y' || order == 'Y');
+    bubbleSort(array, arraySize, ascending);
+    std::cout << "Sorted Array: ";
+    PrintArray(array, arraySize);
+
+    int32_t countBetweenZeros = CountElements(array, arraySize);
+    if (countBetweenZeros != -1) {
+        std::cout << "\nCount of elements between first and last zeros: " 
+                  << countBetweenZeros << '\n';
+    } else {
+        std::cout << "\nNo two different zeros found in array\n";
+    }
+
+    return 0;
 }
