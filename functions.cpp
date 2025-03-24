@@ -4,13 +4,13 @@
 
 template <typename T>
 
-void InputArraySize(int32_t& arraySize) {
+void InputArraySize(int32_t& size) {
     std::cout << "Input size of array: ";
-    std::cin >> arraySize;
+    std::cin >> size;
 }
 
-bool CheckSize(int32_t arraySize) {
-    return arraySize > 0 && arraySize <= MAX_SIZE;
+bool CheckSize(int32_t size) {
+    return size > 0 && size <= MAX_SIZE;
 }
 
 template <typename T>
@@ -30,7 +30,7 @@ void PrintArray(const T* array, int32_t size) {
 }
 
 template <typename T>
-int32_t FindElement(const T* array, int32_t size, T target) {
+int32_t FindElement(T* array, int32_t size, T target) {
     int32_t position = -1;
     for (int32_t i = 0; i < size; ++i) {
         if (array[i] == target) {
@@ -40,33 +40,33 @@ int32_t FindElement(const T* array, int32_t size, T target) {
     return position;
 }
 
-int32_t MaxElementIndex(const int32_t* array, int32_t size) {
-    int32_t maxIndex = 0;
+int32_t MaxElementPosition(const int32_t* array, int32_t size) {
+    int32_t maxPosition = 0;
     for (int32_t i = 1; i < size; ++i) {
-        if (array[i] > array[maxIndex]) {
-            maxIndex = i;
+        if (array[i] > array[maxPosition]) {
+            maxPosition = i;
         }
     }
-    return maxIndex + 1; // Возвращаем позицию, начиная с 1
+    return maxPosition + 1; 
 }
 
-int32_t MinElementIndex(const int32_t* array, int32_t size) {
-    int32_t minIndex = 0;
+int32_t MinElementIndex(int32_t* array, int32_t size) {
+    int32_t minPosition = 0;
     for (int32_t i = 1; i < size; ++i) {
-        if (array[i] < array[minIndex]) {
-            minIndex = i;
+        if (array[i] < array[minPosition]) {
+            minPosition = i;
         }
     }
-    return minIndex + 1; // Возвращаем позицию, начиная с 1
+    return minIndex + 1; 
 }
 
 template <typename T>
-double CalculateAverage(const T* array, int32_t size, int32_t maxIndex, int32_t minIndex) {
-    maxIndex -= 1; // Корректируем индексы, так как функции возвращают позиции, начиная с 1
+double CalculateAverage(T* array, int32_t size, int32_t maxIndex, int32_t minIndex) {
+    maxIndex -= 1; 
     minIndex -= 1;
 
     if (maxIndex == minIndex || abs(maxIndex - minIndex) == 1) {
-        return -1; // Нет элементов между min и max
+        return -1; 
     }
 
     int32_t start = (minIndex < maxIndex) ? minIndex : maxIndex;
@@ -99,7 +99,7 @@ int32_t isPrime(int32_t num) {
     return 1;
 }
 
-void PrimeNumbers(const int32_t* array, int32_t size) {
+void PrimeNumbers(int32_t* array, int32_t size) {
     std::cout << "Prime numbers: ";
     for (int32_t i = 0; i < size; ++i) {
         if (isPrime(array[i])) {
@@ -109,7 +109,7 @@ void PrimeNumbers(const int32_t* array, int32_t size) {
     std::cout << '\n';
 }
 
-int32_t SumOfPrimes(const int32_t* array, int32_t size) {
+int32_t SumOfPrimes(int32_t* array, int32_t size) {
     int32_t sum = 0;
     for (int32_t i = 0; i < size; ++i) {
         if (isPrime(array[i])) {
@@ -141,7 +141,7 @@ int32_t DeleteNegativeNumbersFromArray(int32_t* array, int32_t size) {
 }
 
 template <typename T>
-int32_t CountElements(const T* array, int32_t size) {
+int32_t CountElements(T* array, int32_t size) {
     int32_t firstZeroIndex = -1;
     int32_t lastZeroIndex = -1;
     for (int32_t i = 0; i < size; ++i) {
