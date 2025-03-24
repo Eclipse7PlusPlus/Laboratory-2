@@ -57,7 +57,7 @@ int32_t MinElementIndex(int32_t* array, int32_t size) {
             minPosition = i;
         }
     }
-    return minIndex + 1; 
+    return minPosition + 1; 
 }
 
 template <typename T>
