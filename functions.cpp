@@ -34,7 +34,7 @@ int32_t FindElement(const T* array, int32_t size, T target) {
     int32_t position = -1;
     for (int32_t i = 0; i < size; ++i) {
         if (array[i] == target) {
-            position = i + 1; // Возвращаем позицию, начиная с 1
+            position = i + 1; 
         }
     }
     return position;
