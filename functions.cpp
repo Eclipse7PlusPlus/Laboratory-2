@@ -69,12 +69,10 @@ void ReverseArray(int32_t* array, int32_t size) {
         std::swap(array[i], array[size - 1 - i]);
     }
 }
-
-int32_t DeleteNegativeNumbersFromArray(int32_t* array, int32_t size) {
+    void DeleteNegativeNumbersFromArray(int32_t* array, int32_t size) {
     for (int32_t i = 0; i < size; ++i) {
         if (array[i] < 0) {
             array[i] = 0;
         }
     }
-    return size; 
 }
