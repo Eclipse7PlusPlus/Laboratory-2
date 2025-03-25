@@ -55,7 +55,7 @@ int main() {
     std::cout << "\nReversed Array: ";
     PrintArray(array, size);
 
-    size = DeleteNegativeNumbersFromArray(array, size);
+    DeleteNegativeNumbersFromArray(array, size);
     std::cout << "Array without negatives: ";
     PrintArray(array, size);
 
