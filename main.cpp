@@ -31,8 +31,8 @@ int main() {
         std::cout << "Element " << target << " not found\n";
     }
 
-    int32_t maxPos = MaxElementPosition(array, size);
-    int32_t minPos = MinElementPosition(array, size);
+    int32_t maxPos = MaxElement(array, size);
+    int32_t minPos = MinElement(array, size);
     double average = CalculateAverage(array, size, maxPos, minPos);
     
     std::cout << "\nMax element: " << array[maxPos - 1] 
