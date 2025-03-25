@@ -11,7 +11,7 @@ bool CheckSize(int32_t size) {
     return size > 0 && size <= MAX_SIZE;
 }
 
-int32_t MaxElementPosition(const int32_t* array, int32_t size) {
+int32_t MaxElement(const int32_t* array, int32_t size) {
     int32_t maxPos = 0;
     for (int32_t i = 1; i < size; ++i) {
         if (array[i] > array[maxPos]) {
@@ -21,7 +21,7 @@ int32_t MaxElementPosition(const int32_t* array, int32_t size) {
     return maxPos + 1;
 }
 
-int32_t MinElementPosition(const int32_t* array, int32_t size) {
+int32_t MinElement(const int32_t* array, int32_t size) {
     int32_t minPos = 0;
     for (int32_t i = 1; i < size; ++i) {
         if (array[i] < array[minPos]) {
