@@ -9,7 +9,7 @@ int main() {
     
     InputArraySize(size);
     if (!CheckSize(size)) {
-        std::cerr << "Error: Invalid array size. Must be between 1 and " 
+        std::cout << "Error: Invalid array size. Must be between 1 and " 
                  << MAX_SIZE << "\n";
         return 1;
     }
@@ -21,7 +21,7 @@ int main() {
 
     std::cout << "\nInput target element to find: ";
     if (!(std::cin >> target)) {
-        std::cerr << "Error: Invalid input\n";
+        std::cout << "Error: Invalid input\n";
         return 1;
     }
 
