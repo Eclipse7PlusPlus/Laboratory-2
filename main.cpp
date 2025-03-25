@@ -3,7 +3,9 @@
 #include "header.h"
 
 int main() {
-    int32_t array[MAX_SIZE], size = 0, target = 0;
+    int32_t array[MAX_SIZE], 
+    int32_t size = 0;
+    int32_t target = 0;
     
     InputArraySize(size);
     if (!CheckSize(size)) {
