@@ -28,7 +28,7 @@ void PrintArray(const T* array, int32_t size) {
 }
 
 template <typename T>
-int32_t FindElement(const T* array, int32_t size, T target) {
+int32_t FindElement(T* array, int32_t size, T target) {
     for (int32_t i = 0; i < size; ++i) {
         if (array[i] == target) {
             return i + 1;
@@ -37,11 +37,11 @@ int32_t FindElement(const T* array, int32_t size, T target) {
     return -1;
 }
 
-int32_t MaxElementPosition(const int32_t* array, int32_t size);
-int32_t MinElementPosition(const int32_t* array, int32_t size);
+int32_t MaxElement(int32_t* array, int32_t size);
+int32_t MinElement(int32_t* array, int32_t size);
 
 template <typename T>
-double CalculateAverage(const T* array, int32_t size, int32_t maxPos, int32_t minPos) {
+double CalculateAverage(T* array, int32_t size, int32_t maxPos, int32_t minPos) {
     maxPos -= 1;
     minPos -= 1;
 
@@ -63,14 +63,14 @@ double CalculateAverage(const T* array, int32_t size, int32_t maxPos, int32_t mi
 }
 
 int32_t isPrime(int32_t num);
-void PrimeNumbers(const int32_t* array, int32_t size);
-int32_t SumOfPrimes(const int32_t* array, int32_t size);
+void PrimeNumbers(int32_t* array, int32_t size);
+int32_t SumOfPrimes(int32_t* array, int32_t size);
 
 void ReverseArray(int32_t* array, int32_t size);
 int32_t DeleteNegativeNumbersFromArray(int32_t* array, int32_t size);
 
 template <typename T>
-int32_t CountElements(const T* array, int32_t size) {
+int32_t CountElements(T* array, int32_t size) {
     int32_t firstZero = -1;
     int32_t lastZero = -1;
     for (int32_t i = 0; i < size; ++i) {
