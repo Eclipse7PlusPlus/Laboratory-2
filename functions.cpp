@@ -44,7 +44,7 @@ int32_t isPrime(int32_t num) {
     return 1;
 }
 
-void PrimeNumbers(const int32_t* array, int32_t size) {
+void PrimeNumbers(int32_t* array, int32_t size) {
     std::cout << "Prime numbers: ";
     for (int32_t i = 0; i < size; ++i) {
         if (isPrime(array[i])) {
@@ -54,7 +54,7 @@ void PrimeNumbers(const int32_t* array, int32_t size) {
     std::cout << '\n';
 }
 
-int32_t SumOfPrimes(const int32_t* array, int32_t size) {
+int32_t SumOfPrimes(int32_t* array, int32_t size) {
     int32_t sum = 0;
     for (int32_t i = 0; i < size; ++i) {
         if (isPrime(array[i])) {
